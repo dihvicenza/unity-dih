@@ -7,6 +7,9 @@ public class DoorScript : MonoBehaviour,IDoors
     bool isOpen;
     float timer;
     [SerializeField] float OpenTimer;
+
+    public float pent => OpenTimer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
