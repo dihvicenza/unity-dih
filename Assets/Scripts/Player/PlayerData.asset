@@ -15,5 +15,5 @@ MonoBehaviour:
   force: 5
   sensibility: 0.5
   maxAngle: 45
-  jumpForce: 3
+  jumpForce: 8
   gravity: -9.81
