@@ -36,7 +36,6 @@ public class PlayerScript : MonoBehaviour
             isAttackPressed = true;
         }
     }
-
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -49,6 +48,9 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         ccontroller = GetComponent<CharacterController>();
+
+        //Modulo Raycast
+        if (praycast != null) return;
         praycast = GetComponent<PlayerRaycast>();
     }
 
@@ -89,8 +91,6 @@ public class PlayerScript : MonoBehaviour
             isAttackPressed=false;
         }
     }
-
-
 
 
     public void Movimento()
