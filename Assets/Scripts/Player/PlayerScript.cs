@@ -103,4 +103,14 @@ public class PlayerScript : MonoBehaviour
         Camera.localRotation = Quaternion.Euler(rotationXAxis, 0, 0);
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+
+        var coll = hit.gameObject.GetComponent<IDoors>();
+        if (coll != null)
+        {
+            coll.open();
+        }
+    }
+
 }

@@ -1503,6 +1503,7 @@ GameObject:
   - component: {fileID: 1229411815}
   - component: {fileID: 1229411814}
   - component: {fileID: 1229411813}
+  - component: {fileID: 1229411817}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1625,6 +1626,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229411811}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1229411817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229411811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f095a72b7076640af70bc8962282a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorScript
 --- !u!1 &1246096540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1852,7 @@ GameObject:
   - component: {fileID: 1416162012}
   - component: {fileID: 1416162011}
   - component: {fileID: 1416162010}
+  - component: {fileID: 1416162014}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -1939,6 +1953,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1416162014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416162009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1dc388ff650b840922940795728d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimpleKeyScript
+  door: {fileID: 1229411811}
 --- !u!1 &1468612539
 GameObject:
   m_ObjectHideFlags: 0

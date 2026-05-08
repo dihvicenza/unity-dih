@@ -2,6 +2,6 @@ using UnityEngine.Rendering;
 
 public interface IDoors {
 
-    public void IDoors(); 
+    public void open(); 
 
 }
