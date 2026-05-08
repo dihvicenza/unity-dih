@@ -24,11 +24,13 @@ public class DoorScript : MonoBehaviour,IDoors
                 timer = 0;
                 isOpen = false;
                 anim.Play("close");
+
             }
         }
     }
 
-    public void open() {
+    public void open()
+    {
         if (!isOpen)
         {
             Debug.Log("Aperto");
