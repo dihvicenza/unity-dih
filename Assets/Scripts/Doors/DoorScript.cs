@@ -5,6 +5,8 @@ public class DoorScript : MonoBehaviour,IDoors
 {
     Animator anim;
     bool isOpen;
+    float timer;
+    [SerializeField] float OpenTimer;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,7 +16,16 @@ public class DoorScript : MonoBehaviour,IDoors
     // Update is called once per frame
     void Update()
     {
-       
+        if (isOpen)
+        {
+            timer += Time.deltaTime;
+            if (timer > OpenTimer)
+            {
+                timer = 0;
+                isOpen = false;
+                anim.Play("close");
+            }
+        }
     }
 
     public void open() {
