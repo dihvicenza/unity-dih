@@ -24,9 +24,9 @@ public class TankScript : MonoBehaviour
         float angleX = -Mathf.Atan2(localTarget.y, localTarget.z) * Mathf.Rad2Deg;
         Quaternion muzzleRotation = Quaternion.Euler(angleX, 0, 0);
         muzzl.localRotation = Quaternion.Slerp(muzzl.localRotation, muzzleRotation, Time.deltaTime * smoothRotaion);
-        Quaternion rotDestination = Quaternion.LookRotation(target.transform.position - torret.position);
 
         //ruota la torretta
+        Quaternion rotDestination = Quaternion.LookRotation(target.transform.position - torret.position);
         rotDestination.x = 0;
         torret.rotation = Quaternion.Slerp(torret.rotation, rotDestination, Time.deltaTime * smoothRotaion);
 
