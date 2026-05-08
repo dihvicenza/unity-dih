@@ -29,8 +29,11 @@ public class DoorScript : MonoBehaviour,IDoors
     }
 
     public void open() {
-        Debug.Log("Aperto");
-        isOpen = true;
-        anim.Play("open");
+        if (!isOpen)
+        {
+            Debug.Log("Aperto");
+            isOpen = true;
+            anim.Play("open");
+        }
     }
 }

@@ -13,6 +13,10 @@ public class PlayerRaycast : MonoBehaviour
         if (Physics.Raycast(ray_point.position, direction.normalized, out RaycastHit hit, rayDistance))
         {
             Debug.Log("Sparo Raycast");
+            if (hit.transform.GetComponent<IDoors>() != null)
+            {
+                hit.transform.GetComponent<IDoors>().open();
+            }
             Debug.DrawLine(ray_point.position, hit.point, Color.red);
         }
         else
