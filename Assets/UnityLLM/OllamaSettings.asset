@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee4413233f89d8458a144110cbf48d4, type: 3}
+  m_Name: OllamaSettings
+  m_EditorClassIdentifier: Assembly-CSharp::OllamaSettingsSO
+  baseUrl: http://localhost:11434
+  endpoint: /api/chat
+  modelName: gemma4:e2b
+  systemPrompt: sei uno chef professionista. dai solo ricette di cucina. rispondi
+    in modo breve
+  positivePrompt: dari risposte immediate
+  negativePrompt: essere prolisso, ragionare, uscire dal contesto cucina
+  temperature: 1
+  top_k: 40
+  top_p: 0.9
+  repeat_penalty: 1.1
+  num_predict: 2048
+  stream: 0
+  timeout: 120
