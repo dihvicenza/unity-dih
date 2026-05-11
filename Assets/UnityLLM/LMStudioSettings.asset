@@ -12,17 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0798845c290674aaeb393a60b0c38c, type: 3}
   m_Name: LMStudioSettings
   m_EditorClassIdentifier: Assembly-CSharp::LMStudioSettingsSO
-  baseUrl: http://localhost:1234
+  baseUrl: https://dramatic-outspoken-overhang.ngrok-free.dev
   endpoint: /v1/chat/completions
   apiKey: 
   modelName: local-model
-  systemPrompt: 
+  systemPrompt: 'sei un develoepr Unity professionista.
+
+    conosci Unity 6.3+
+
+    utilizzi
+    SOLO new input system.
+
+    non tergiversare, non semplificare gli script.
+
+    commenta
+    sempre ed aggiungi sempre un header con un template similie:
+
+
+    //Vers 1.0
+
+    //Fabrizio
+    Radica
+
+    // [ qui aggiungi descrizione della classe ]
+
+
+    se qualcosa non
+    la conosci, non invetare e rispondi semplicemente "Non so la risposta" '
   positivePrompt: 
   negativePrompt: 
-  temperature: 0.7
-  top_p: 0.95
-  frequency_penalty: 0
-  presence_penalty: 0
-  max_tokens: 1024
+  temperature: 1
+  top_p: 0.75
+  top_k: 65
+  frequency_penalty: 1.1
+  presence_penalty: 1.1
+  max_tokens: 4096
   stream: 0
   timeout: 120

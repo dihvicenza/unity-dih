@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee4413233f89d8458a144110cbf48d4, type: 3}
   m_Name: OllamaSettings
   m_EditorClassIdentifier: Assembly-CSharp::OllamaSettingsSO
-  baseUrl: http://localhost:11434
-  endpoint: /api/chat
-  modelName: gemma4:e2b
-  systemPrompt: sei uno chef professionista. dai solo ricette di cucina. rispondi
-    in modo breve
+  baseUrl: https://dramatic-outspoken-overhang.ngrok-free.dev
+  endpoint: /v1/chat/completions
+  modelName: google/gemma-4-e4b
+  systemPrompt: 'seiun bravo assistente
+
+'
   positivePrompt: dari risposte immediate
-  negativePrompt: essere prolisso, ragionare, uscire dal contesto cucina
+  negativePrompt: essere prolisso, ragionare
   temperature: 1
   top_k: 64
   top_p: 0.95
