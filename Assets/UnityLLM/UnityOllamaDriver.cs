@@ -25,11 +25,9 @@ public class UnityOllamaDriver : ILLMDriver
 
     public async Task<string> SendChatAsync(List<LLMMessage> messages)
     {
-        string url =
-            settings.baseUrl + settings.endpoint;
+        string url = settings.baseUrl + settings.endpoint;
 
-        OllamaChatRequest requestData =
-            new OllamaChatRequest
+        OllamaChatRequest requestData = new OllamaChatRequest
             {
                 model = settings.modelName,
                 messages = messages,
@@ -57,8 +55,7 @@ public class UnityOllamaDriver : ILLMDriver
                 }
             };
 
-        string jsonBody =
-            JsonUtility.ToJson(requestData);
+        string jsonBody = JsonUtility.ToJson(requestData);
 
         Debug.Log(jsonBody);
 

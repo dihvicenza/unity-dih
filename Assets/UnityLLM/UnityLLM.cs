@@ -10,6 +10,7 @@ da inspector.
 */
 
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -38,8 +39,8 @@ public class UnityLLM : MonoBehaviour
     private string activePositivePrompt;
     private string activeNegativePrompt;
 
-    private readonly List<LLMMessage> history =
-        new List<LLMMessage>();
+    private readonly List<LLMMessage> history = new List<LLMMessage>();
+ 
 
     private void Awake()
     {
@@ -66,14 +67,11 @@ public class UnityLLM : MonoBehaviour
                         lmStudioSettings
                     );
 
-                activeSystemPrompt =
-                    lmStudioSettings.systemPrompt;
+                activeSystemPrompt = lmStudioSettings.systemPrompt;
 
-                activePositivePrompt =
-                    lmStudioSettings.positivePrompt;
+                activePositivePrompt = lmStudioSettings.positivePrompt;
 
-                activeNegativePrompt =
-                    lmStudioSettings.negativePrompt;
+                activeNegativePrompt = lmStudioSettings.negativePrompt;
 
                 break;
 

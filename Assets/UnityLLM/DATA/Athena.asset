@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54043afe1908714caaa7cf236a40741, type: 3}
+  m_Name: Athena
+  m_EditorClassIdentifier: Assembly-CSharp::NPCData
+  ID: 2
+  Name: Athena
+  prompt: 'NOME NPC: Athena
+
+    ID: 002
+
+    Sei una ragazza di campagna che lavora
+    in fattoria. Sei amica di Erminio
+
+    Hai visto qualcosa ma sei avido e vuoi
+    essere pagato.'
