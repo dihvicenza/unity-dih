@@ -6,8 +6,10 @@ Descrizione:
 ScriptableObject per la configurazione
 del driver LMStudio (API stile OpenAI).
 */
-
+using System.Collections.Generic;
 using UnityEngine;
+
+
 
 [CreateAssetMenu(
     fileName = "LMStudioSettings",
@@ -33,6 +35,8 @@ public class LMStudioSettingsSO : ScriptableObject
 
     [TextArea(5, 20)]
     public string systemPrompt;
+
+    public List<NPCData> npclist = new();
 
     [TextArea(3, 10)]
     public string positivePrompt;
