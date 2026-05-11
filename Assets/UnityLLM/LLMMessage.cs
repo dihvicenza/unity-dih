@@ -18,6 +18,8 @@ public class LLMMessage
     public LLMMessage(string role, string content)
     {
         this.role = role;
-        this.content = content;
+
+        //no think per Gemma
+        this.content = "<thought off> \n" + content;
     }
 }

@@ -76,8 +76,7 @@ public class UnityOllamaDriver : ILLMDriver
             "application/json"
         );
 
-        request.timeout =
-            settings.timeout;
+        request.timeout = settings.timeout;
 
         UnityWebRequestAsyncOperation operation =
             request.SendWebRequest();
