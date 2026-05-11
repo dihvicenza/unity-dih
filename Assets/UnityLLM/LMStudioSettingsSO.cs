@@ -48,6 +48,9 @@ public class LMStudioSettingsSO : ScriptableObject
     [Range(0f, 1f)]
     public float top_p = 0.95f;
 
+    [Range(0f, 100f)]
+    public float top_k = 65;
+
     [Range(-2f, 2f)]
     public float frequency_penalty = 0f;
 

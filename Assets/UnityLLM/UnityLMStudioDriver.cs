@@ -44,6 +44,9 @@ public class UnityLMStudioDriver : ILLMDriver
                 top_p =
                     settings.top_p,
 
+                top_k =
+                    settings.top_k,
+
                 max_tokens =
                     settings.max_tokens,
 

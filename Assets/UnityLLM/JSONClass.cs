@@ -74,6 +74,7 @@ public class OpenAIChatRequest
 
     public float temperature;
     public float top_p;
+    public float top_k;
     public int max_tokens;
     public float frequency_penalty;
     public float presence_penalty;
