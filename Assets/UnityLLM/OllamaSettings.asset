@@ -20,8 +20,8 @@ MonoBehaviour:
   positivePrompt: dari risposte immediate
   negativePrompt: essere prolisso, ragionare, uscire dal contesto cucina
   temperature: 1
-  top_k: 40
-  top_p: 0.9
+  top_k: 64
+  top_p: 0.95
   repeat_penalty: 1.1
   num_predict: 2048
   stream: 0

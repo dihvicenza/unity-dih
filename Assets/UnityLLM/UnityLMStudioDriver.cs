@@ -1,24 +1,24 @@
 /*
 Autore: Fabrizio Radica
-Versione: 0.3
-Data: 2026-05-08
+Versione: 0.4
+Data: 2026-05-11
 Descrizione:
-Driver base per la comunicazione con Ollama.
+Driver per la comunicazione con LMStudio
+tramite API stile OpenAI (/v1/chat/completions).
 Gestisce esclusivamente la richiesta HTTP.
 */
 
-using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class UnityOllamaDriver : ILLMDriver
+public class UnityLMStudioDriver : ILLMDriver
 {
-    private readonly OllamaSettingsSO settings;
+    private readonly LMStudioSettingsSO settings;
 
-    public UnityOllamaDriver(OllamaSettingsSO settings)
+    public UnityLMStudioDriver(LMStudioSettingsSO settings)
     {
         this.settings = settings;
     }
@@ -28,33 +28,30 @@ public class UnityOllamaDriver : ILLMDriver
         string url =
             settings.baseUrl + settings.endpoint;
 
-        OllamaChatRequest requestData =
-            new OllamaChatRequest
+        OpenAIChatRequest requestData =
+            new OpenAIChatRequest
             {
                 model = settings.modelName,
                 messages = messages,
 
-                // FAB v0.3
+                // FAB v0.4
                 // Stream OFF per semplicità
                 stream = false,
 
-                options = new OllamaOptions
-                {
-                    temperature =
-                        settings.temperature,
+                temperature =
+                    settings.temperature,
 
-                    top_k =
-                        settings.top_k,
+                top_p =
+                    settings.top_p,
 
-                    top_p =
-                        settings.top_p,
+                max_tokens =
+                    settings.max_tokens,
 
-                    repeat_penalty =
-                        settings.repeat_penalty,
+                frequency_penalty =
+                    settings.frequency_penalty,
 
-                    num_predict =
-                        settings.num_predict
-                }
+                presence_penalty =
+                    settings.presence_penalty
             };
 
         string jsonBody =
@@ -79,6 +76,19 @@ public class UnityOllamaDriver : ILLMDriver
             "application/json"
         );
 
+        // FAB v0.4
+        // LMStudio locale non richiede auth.
+        // Header presente solo per compatibilità
+        // con altri endpoint OpenAI-style.
+        if (!string.IsNullOrWhiteSpace(
+            settings.apiKey))
+        {
+            request.SetRequestHeader(
+                "Authorization",
+                "Bearer " + settings.apiKey
+            );
+        }
+
         request.timeout =
             settings.timeout;
 
@@ -102,8 +112,8 @@ public class UnityOllamaDriver : ILLMDriver
 
         Debug.Log(jsonResponse);
 
-        OllamaChatResponse response =
-            JsonUtility.FromJson<OllamaChatResponse>(
+        OpenAIChatResponse response =
+            JsonUtility.FromJson<OpenAIChatResponse>(
                 jsonResponse
             );
 
@@ -116,7 +126,20 @@ public class UnityOllamaDriver : ILLMDriver
             return null;
         }
 
-        if (response.message == null)
+        if (response.choices == null ||
+            response.choices.Count == 0)
+        {
+            Debug.LogError(
+                "Choices NULL/empty"
+            );
+
+            return null;
+        }
+
+        OpenAIResponseMessage message =
+            response.choices[0].message;
+
+        if (message == null)
         {
             Debug.LogError(
                 "Message NULL"
@@ -125,28 +148,10 @@ public class UnityOllamaDriver : ILLMDriver
             return null;
         }
 
-        // FAB v0.3
-        // Risposta standard
         if (!string.IsNullOrWhiteSpace(
-            response.message.content))
+            message.content))
         {
-            return response.message.content;
-        }
-
-        // FAB v0.3
-        // Debug modelli thinking
-        if (!string.IsNullOrWhiteSpace(
-            response.message.thinking))
-        {
-            Debug.LogWarning(
-                "Il modello ha restituito THINKING."
-            );
-
-            Debug.Log(
-                response.message.thinking
-            );
-
-            return null;
+            return message.content;
         }
 
         return null;
